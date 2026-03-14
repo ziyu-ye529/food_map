@@ -485,6 +485,23 @@ html, body, #root {
   color: var(--text-primary);
 }
 
+.filter-popover__reset {
+  background: none;
+  border: none;
+  font-size: 11px;
+  font-weight: 500;
+  color: #3b82f6;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 4px;
+  transition: all 0.15s;
+}
+
+.filter-popover__reset:hover {
+  background: #eff6ff;
+  text-decoration: underline;
+}
+
 .filter-popover__close {
   display: flex;
   align-items: center;

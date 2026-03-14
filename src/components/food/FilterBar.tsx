@@ -26,6 +26,7 @@ export default function FilterBar() {
   const toggleFavorites = useRestaurantStore((s) => s.toggleFavorites);
   const setNoiseLevel = useRestaurantStore((s) => s.setNoiseLevel);
   const toggleTag = useRestaurantStore((s) => s.toggleTag);
+  const clearAllFilters = useRestaurantStore((s) => s.clearAllFilters);
 
   // Count active "more" filters for the badge
   const moreActiveCount = [
@@ -93,7 +94,17 @@ export default function FilterBar() {
           {moreOpen && (
             <div ref={popoverRef} className="filter-popover">
               <div className="filter-popover__header">
-                <span className="filter-popover__title">{t("filter.title")}</span>
+                <div className="flex items-center gap-2">
+                  <span className="filter-popover__title">{t("filter.title")}</span>
+                  {moreActiveCount > 0 && (
+                    <button 
+                      className="filter-popover__reset" 
+                      onClick={clearAllFilters}
+                    >
+                      {t("filter.reset")}
+                    </button>
+                  )}
+                </div>
                 <button className="filter-popover__close" onClick={() => setMoreOpen(false)}>
                   <X size={14} />
                 </button>
