@@ -1,10 +1,12 @@
 import { useRef, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { useShallow } from "zustand/react/shallow";
 import { useRestaurantStore, selectFilteredRestaurants, selectHasActiveFilters } from "@/stores/restaurantStore";
 import RestaurantCard from "./RestaurantCard";
 import { UtensilsCrossed } from "lucide-react";
 
 export default function RestaurantList() {
+  const { t } = useTranslation();
   // Use useShallow to prevent infinite re-renders from new array references
   const filteredRestaurants = useRestaurantStore(useShallow(selectFilteredRestaurants));
   const hasActiveFilters = useRestaurantStore(selectHasActiveFilters);
@@ -28,11 +30,11 @@ export default function RestaurantList() {
     return (
       <div className="restaurant-list__empty">
         <UtensilsCrossed size={40} className="empty-icon" />
-        <p className="empty-title">No restaurants found</p>
-        <p className="empty-sub">Try adjusting your search or filters</p>
+        <p className="empty-title">{t('list.empty')}</p>
+        <p className="empty-sub">{t('list.tryAdjusting')}</p>
         {hasActiveFilters && (
           <button className="empty-clear-btn" onClick={clearAllFilters}>
-            Clear all filters
+            {t('filter.reset')}
           </button>
         )}
       </div>
@@ -42,7 +44,9 @@ export default function RestaurantList() {
   return (
     <div className="restaurant-list">
       <div className="restaurant-list__count">
-        {filteredRestaurants.length} restaurant{filteredRestaurants.length !== 1 ? "s" : ""}
+        {filteredRestaurants.length === 1 
+          ? t('list.found_one', { count: 1 }) 
+          : t('list.found_other', { count: filteredRestaurants.length })}
       </div>
       <div className="restaurant-list__scroll">
         {filteredRestaurants.map((r) => (

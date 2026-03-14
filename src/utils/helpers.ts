@@ -28,9 +28,9 @@ export function ratingColor(rating: number): string {
 /**
  * Format distance in meters to human-readable string.
  */
-export function formatDistance(meters: number): string {
+export function formatDistance(meters: number, t?: any): string {
   if (meters < 1000) return `${meters}m`;
-  return `${(meters / 1000).toFixed(1)}km`;
+  return `${(meters / 1000).toFixed(1)}${t ? t('card.km') : 'km'}`;
 }
 
 /**

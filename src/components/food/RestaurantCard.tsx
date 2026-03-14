@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import { useTranslation } from "react-i18next";
 import type { Restaurant } from "@/types/restaurant";
 import {
   priceToSymbol,
@@ -9,12 +10,14 @@ import {
 } from "@/utils/helpers";
 import { cn } from "@/lib/utils";
 import { useRestaurantStore } from "@/stores/restaurantStore";
+import { Heart } from "lucide-react";
 
 type Props = {
   restaurant: Restaurant;
 };
 
 const RestaurantCard = forwardRef<HTMLDivElement, Props>(({ restaurant: r }, ref) => {
+  const { t } = useTranslation();
   const selectedIds = useRestaurantStore((s) => s.selectedIds);
   const hoveredId = useRestaurantStore((s) => s.hoveredId);
   const toggleSelected = useRestaurantStore((s) => s.toggleSelected);
@@ -69,27 +72,40 @@ const RestaurantCard = forwardRef<HTMLDivElement, Props>(({ restaurant: r }, ref
       <div className="restaurant-card__info">
         <div className="restaurant-card__top">
           <h3 className="restaurant-card__name">{r.name}</h3>
-          <div className={cn("rating-badge", ratingBadgeClass(r.rating))}>
-            {r.rating.toFixed(1)}
+          <div className="restaurant-card__top-right" style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                useRestaurantStore.getState().toggleSaved(r.id);
+              }}
+              className={cn("favorite-btn", r.isSaved && "text-red-500", !r.isSaved && "text-gray-400")}
+              aria-label="Toggle Favorite"
+            >
+              <Heart size={16} fill={r.isSaved ? "currentColor" : "none"} />
+            </button>
+            <div className={cn("rating-badge", ratingBadgeClass(r.rating))}>
+              {r.rating.toFixed(1)}
+            </div>
           </div>
         </div>
 
         <div className="restaurant-card__meta">
-          <span className="meta-tag">{cuisineEmoji(r.cuisine)} {r.cuisine}</span>
+          <span className="meta-tag">{cuisineEmoji(r.cuisine)} {t(`cuisine.${r.cuisine}`)}</span>
           <span className="meta-divider">·</span>
           <span className="meta-price">{priceToSymbol(r.pricePerPerson)}</span>
           <span className="meta-divider">·</span>
-          <span className="meta-distance">📍 {formatDistance(r.distance)}</span>
+          <span className="meta-distance">📍 {formatDistance(r.distance, t)}</span>
         </div>
 
-        <p className="restaurant-card__review">{r.review}</p>
+        <p className="restaurant-card__review">{t(`review.${r.review}`)}</p>
 
         {r.tags.length > 0 && (
           <div className="restaurant-card__tags">
             {r.tags.slice(0, 2).map((tag) => (
-              <span key={tag} className="inline-tag">{tag}</span>
+              <span key={tag} className="inline-tag">{t(`tags.${tag}`)}</span>
             ))}
-            {r.hasStudentDiscount && <span className="inline-tag inline-tag--special">🎓 Student</span>}
+            {r.hasStudentDiscount && <span className="inline-tag inline-tag--special">🎓 {t('filter.studentDeals')}</span>}
           </div>
         )}
       </div>

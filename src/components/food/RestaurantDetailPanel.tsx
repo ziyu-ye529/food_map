@@ -1,4 +1,5 @@
 import { useShallow } from "zustand/react/shallow";
+import { useTranslation } from "react-i18next";
 import { useRestaurantStore, selectSelectedRestaurants } from "@/stores/restaurantStore";
 import {
   priceToSymbol,
@@ -23,11 +24,12 @@ function DetailCard({
   isRemoving: boolean;
   onClose: () => void;
 }) {
+  const { t } = useTranslation();
   const imageSrc = r.images[0] ? `/source/images/${r.images[0]}` : null;
 
   return (
     <div className={cn("detail-card", isRemoving && "detail-card--removing")}>
-      <button className="detail-card__close" onClick={onClose} aria-label="Close">
+      <button className="detail-card__close" onClick={onClose} aria-label={t("detail.close")}>
         <X size={14} />
       </button>
 
@@ -52,7 +54,7 @@ function DetailCard({
           </div>
         )}
         <div className={cn("detail-card__status", r.isOpenNow ? "detail-card__status--open" : "detail-card__status--closed")}>
-          {r.isOpenNow ? "● Open Now" : "● Closed"}
+          {r.isOpenNow ? `● ${t('detail.openNow')}` : `● ${t('detail.closed')}`}
         </div>
       </div>
 
@@ -65,34 +67,34 @@ function DetailCard({
         </div>
 
         <div className="detail-card__meta-row">
-          <span>{cuisineEmoji(r.cuisine)} {r.cuisine}</span>
+          <span>{cuisineEmoji(r.cuisine)} {t(`cuisine.${r.cuisine}`)}</span>
           <span className="detail-divider">·</span>
           <span className="detail-price">{priceToSymbol(r.pricePerPerson)} <span className="detail-price__amount">${r.pricePerPerson}/person</span></span>
           <span className="detail-divider">·</span>
-          <span>📍 {formatDistance(r.distance)}</span>
+          <span>📍 {formatDistance(r.distance, t)}</span>
         </div>
 
-        <blockquote className="detail-card__review">"{r.review}"</blockquote>
+        <blockquote className="detail-card__review">"{t(`review.${r.review}`)}"</blockquote>
 
         <div className="detail-stats">
           <div className="detail-stat">
             <Clock size={13} className="detail-stat__icon" />
-            <span className="detail-stat__label">Wait</span>
-            <span className="detail-stat__val">{r.waitTime === 0 ? "No wait" : `~${r.waitTime} min`}</span>
+            <span className="detail-stat__label">{t('detail.waitLabel')}</span>
+            <span className="detail-stat__val">{r.waitTime === 0 ? t('detail.noWait') : t('detail.wait', { time: r.waitTime })}</span>
           </div>
           <div className="detail-stat">
             <Wifi size={13} className="detail-stat__icon" />
             <span className="detail-stat__label">WiFi</span>
-            <span className="detail-stat__val">{r.studyFriendly.hasWifi ? "Yes" : "No"}</span>
+            <span className="detail-stat__val">{r.studyFriendly.hasWifi ? t('detail.yes') : t('detail.no')}</span>
           </div>
           <div className="detail-stat">
             <Volume2 size={13} className="detail-stat__icon" />
-            <span className="detail-stat__label">Noise</span>
-            <span className="detail-stat__val">{r.studyFriendly.noiseLevel}</span>
+            <span className="detail-stat__label">{t('detail.noise')}</span>
+            <span className="detail-stat__val">{t(`filter.noise.${r.studyFriendly.noiseLevel}`)}</span>
           </div>
           <div className="detail-stat">
             <Zap size={13} className="detail-stat__icon" />
-            <span className="detail-stat__label">Outlets</span>
+            <span className="detail-stat__label">{t('detail.outlets')}</span>
             <span className="detail-stat__val">{r.studyFriendly.powerOutlets}</span>
           </div>
         </div>
@@ -110,9 +112,9 @@ function DetailCard({
           <div className="detail-card__chips">
             <Tag size={11} className="detail-row__icon" />
             {r.tags.map((tag) => (
-              <span key={tag} className="detail-chip">{tag}</span>
+              <span key={tag} className="detail-chip">{t(`tags.${tag}`)}</span>
             ))}
-            {r.hasStudentDiscount && <span className="detail-chip detail-chip--special">🎓 Student Deal</span>}
+            {r.hasStudentDiscount && <span className="detail-chip detail-chip--special">🎓 {t('filter.studentDeals')}</span>}
           </div>
         )}
 
@@ -129,6 +131,7 @@ function DetailCard({
 }
 
 export default function RestaurantDetailPanel() {
+  const { t } = useTranslation();
   const selectedRestaurants = useRestaurantStore(useShallow(selectSelectedRestaurants));
   const deselect = useRestaurantStore((s) => s.deselect);
   const clearSelected = useRestaurantStore((s) => s.clearSelected);
@@ -165,8 +168,8 @@ export default function RestaurantDetailPanel() {
     removeTimers.current.clear();
     setRemovingIds(new Set());
     clearSelected();
-    setRemovedMsg("All removed");
-  }, [clearSelected]);
+    setRemovedMsg(t('detail.clearAll') + " \u2713");
+  }, [clearSelected, t]);
 
   // Cleanup timers on unmount
   useEffect(() => {
@@ -210,17 +213,17 @@ export default function RestaurantDetailPanel() {
 
       <div className="detail-panel__header">
         <div className="detail-panel__title">
-          {selectedRestaurants.length <= 1 ? "Restaurant Details" : `Comparing ${selectedRestaurants.length} Restaurants`}
+          {selectedRestaurants.length <= 1 ? t('detail.title') : t('detail.comparing', { count: selectedRestaurants.length })}
           {selectedRestaurants.length > 1 && (
-            <span className="detail-panel__compare-badge">COMPARE</span>
+            <span className="detail-panel__compare-badge">{t('detail.compareBadge')}</span>
           )}
         </div>
         <div className="detail-panel__actions">
           <span className="detail-panel__hint">
-            <ChevronDown size={12} /> Click cards in list to add/remove
+            <ChevronDown size={12} /> {t('detail.clickToAdd')}
           </span>
           <button className="detail-panel__clear" onClick={handleClearAll}>
-            Clear all
+            {t('detail.clearAll')}
           </button>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { useRestaurantStore } from "@/stores/restaurantStore";
 import { Sparkles, X, User, Mic, Check, XCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -15,8 +16,9 @@ interface AiAssistantModalProps {
 }
 
 export default function AiAssistantModal({ onClose }: AiAssistantModalProps) {
+  const { t } = useTranslation();
   const [messages, setMessages] = useState<Message[]>([
-    { id: "1", role: "ai", text: "随便说说您今天想来点啥？" }
+    { id: "1", role: "ai", text: t("ai.greeting") }
   ]);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
@@ -47,7 +49,7 @@ export default function AiAssistantModal({ onClose }: AiAssistantModalProps) {
       setMessages((prev) => [...prev, { 
         id: (Date.now() + 1).toString(),
         role: "ai", 
-        text: `为您推荐：${targetRestaurant?.name || "餐厅3"}！是否为您在地图上选中并展示详情？`,
+        text: t("ai.recommendation", { name: targetRestaurant?.name || "餐厅3" }),
         action: "pending"
       }]);
       setIsTyping(false);
@@ -69,7 +71,7 @@ export default function AiAssistantModal({ onClose }: AiAssistantModalProps) {
         // 3. Close the AI Modal completely
         onClose();
         
-        // 3. Wait for the modal exit animation to clear, then trigger the map selection
+        // 4. Wait for the modal exit animation to clear, then trigger the map selection
         setTimeout(() => {
           if (targetRestaurant) {
             const isAlreadySelected = useRestaurantStore.getState().selectedIds.includes(targetRestaurant.id);
@@ -83,7 +85,7 @@ export default function AiAssistantModal({ onClose }: AiAssistantModalProps) {
       setMessages((prev) => [...prev, {
         id: Date.now().toString(),
         role: "ai",
-        text: "好的，那您还想看看什么其他类型的？"
+        text: t("ai.followup")
       }]);
     }
   };
@@ -114,7 +116,7 @@ export default function AiAssistantModal({ onClose }: AiAssistantModalProps) {
         <div className="ai-modal__header">
           <div className="ai-modal__title">
             <Sparkles size={16} className="text-orange-500" />
-            <span>AI Discover</span>
+            <span>{t("ai.title")}</span>
           </div>
           <button className="ai-modal__close" onClick={onClose}>
             <X size={16} />
@@ -136,21 +138,21 @@ export default function AiAssistantModal({ onClose }: AiAssistantModalProps) {
                       className="ai-btn ai-btn--reject" 
                       onClick={() => handleAction(msg.id, "rejected")}
                     >
-                      <XCircle size={14} /> 拒绝
+                      <XCircle size={14} /> {t("ai.reject")}
                     </button>
                     <button 
                       className="ai-btn ai-btn--agree" 
                       onClick={() => handleAction(msg.id, "accepted")}
                     >
-                      <Check size={14} /> 同意
+                      <Check size={14} /> {t("ai.agree")}
                     </button>
                   </div>
                 )}
                 {msg.action === "accepted" && (
-                  <div className="ai-msg__status ai-msg__status--accepted">已同意</div>
+                  <div className="ai-msg__status ai-msg__status--accepted">{t("ai.accepted")}</div>
                 )}
                 {msg.action === "rejected" && (
-                  <div className="ai-msg__status ai-msg__status--rejected">已拒绝</div>
+                  <div className="ai-msg__status ai-msg__status--rejected">{t("ai.rejected")}</div>
                 )}
               </div>
             </div>
@@ -173,7 +175,7 @@ export default function AiAssistantModal({ onClose }: AiAssistantModalProps) {
               type="text"
               className="ai-modal__input"
               autoFocus
-              placeholder={isListening ? "Listening..." : "e.g. A quiet cafe with wifi..."}
+              placeholder={isListening ? t("ai.listening") : t("ai.placeholder")}
               value={input}
               onChange={(e) => setInput(e.target.value)}
               disabled={isTyping || isListening}
@@ -194,7 +196,7 @@ export default function AiAssistantModal({ onClose }: AiAssistantModalProps) {
             className="ai-modal__send" 
             disabled={!input.trim() || isTyping || isListening}
           >
-            Send
+            {t("ai.send")}
           </button>
         </form>
       </div>

@@ -131,6 +131,59 @@ html, body, #root {
   margin: 2px 0 0;
 }
 
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: white;
+  border: 1.5px solid var(--chip-border);
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lang-toggle:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: var(--text-primary);
+}
+
+/* Language switch transition */
+@keyframes lang-fade-out {
+  from { opacity: 1; transform: translateY(0) scale(1); filter: blur(0px); }
+  to   { opacity: 0; transform: translateY(-6px) scale(0.98); filter: blur(3px); }
+}
+
+@keyframes lang-fade-in {
+  from { opacity: 0; transform: translateY(6px) scale(0.98); filter: blur(3px); }
+  to   { opacity: 1; transform: translateY(0) scale(1); filter: blur(0px); }
+}
+
+.lang-transition-out {
+  animation: lang-fade-out 0.18s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  pointer-events: none;
+}
+
+.lang-transition-in {
+  animation: lang-fade-in 0.22s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Toggle button spin on click */
+.lang-toggle.lang-toggle--spinning .lang-toggle-icon {
+  animation: lang-toggle-spin 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes lang-toggle-spin {
+  from { transform: rotate(0deg) scale(1); }
+  50%  { transform: rotate(180deg) scale(1.2); }
+  to   { transform: rotate(360deg) scale(1); }
+}
+
+
 .food-panel__search {
   padding: 14px 16px 8px;
   flex-shrink: 0;

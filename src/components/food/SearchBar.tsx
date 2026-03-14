@@ -1,9 +1,11 @@
 import { useState, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { Search, X, Mic, Sparkles } from "lucide-react";
 import { useRestaurantStore } from "@/stores/restaurantStore";
 import AiAssistantModal from "./AiAssistantModal";
 
 export default function SearchBar() {
+  const { t } = useTranslation();
   const searchQuery = useRestaurantStore((s) => s.searchQuery);
   const setSearch = useRestaurantStore((s) => s.setSearch);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
@@ -32,7 +34,7 @@ export default function SearchBar() {
           ref={inputRef}
           className="search-bar__input"
           type="text"
-          placeholder={isListening ? "Listening..." : "Search by name or cuisine…"}
+          placeholder={isListening ? t("search.listening") : t("search.placeholder")}
           value={searchQuery}
           onChange={(e) => setSearch(e.target.value)}
           autoComplete="off"
@@ -45,7 +47,7 @@ export default function SearchBar() {
             <button
               className="search-bar__btn search-bar__clear"
               onClick={() => setSearch("")}
-              aria-label="Clear search"
+              aria-label={t("search.clearTooltip")}
             >
               <X size={14} />
             </button>
@@ -57,8 +59,8 @@ export default function SearchBar() {
             <button 
               className={`search-bar__btn search-bar__voice ${isListening ? "search-bar__voice--listening" : ""}`}
               onClick={handleVoiceInput}
-              title="Voice Search (Mock: types 'cafe')"
-              aria-label="Voice Search"
+              title={t("search.voiceTooltip")}
+              aria-label={t("search.voiceTooltip")}
             >
               <Mic size={15} />
             </button>
@@ -71,8 +73,8 @@ export default function SearchBar() {
               useRestaurantStore.getState().clearSelected();
               setIsAiModalOpen(true);
             }}
-            title="AI Assistant"
-            aria-label="AI Assistant"
+            title={t("search.aiTooltip")}
+            aria-label={t("search.aiTooltip")}
           >
             <Sparkles size={15} />
           </button>
