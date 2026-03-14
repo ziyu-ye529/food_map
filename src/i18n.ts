@@ -30,7 +30,9 @@ const resources = {
         },
         reset: "Reset Filters",
         more: "More",
-        tagsLabel: "Tags"
+        tagsLabel: "Tags",
+        hole: "Tree Hole",
+        reply: "Reply"
       },
       list: {
         found_one: "Found {{count}} restaurant",
@@ -143,7 +145,9 @@ const resources = {
         },
         reset: "重置筛选",
         more: "更多",
-        tagsLabel: "标签"
+        tagsLabel: "标签",
+        hole: "树洞",
+        reply: "回复"
       },
       list: {
         found_one: "找到 {{count}} 家餐厅",

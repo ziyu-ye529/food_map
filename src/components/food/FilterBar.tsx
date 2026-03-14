@@ -1,14 +1,16 @@
 import { useState, useRef, useEffect } from "react";
-import { ChevronDown, Heart, SlidersHorizontal, X } from "lucide-react";
+import { ChevronDown, Heart, SlidersHorizontal, X, MessageSquare } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useRestaurantStore, ALL_TAGS } from "@/stores/restaurantStore";
 import { cn } from "@/lib/utils";
+import TreeHole from "@/components/community/TreeHole";
 
 const NOISE_LEVELS = ["All", "Quiet", "Moderate", "Loud"] as const;
 
 export default function FilterBar() {
   const { t } = useTranslation();
   const [moreOpen, setMoreOpen] = useState(false);
+  const [holeOpen, setHoleOpen] = useState(false);
   const popoverRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
 
@@ -147,7 +149,18 @@ export default function FilterBar() {
             </div>
           )}
         </div>
+
+        {/* Tree Hole */}
+        <button
+          className={cn("filter-chip filter-chip--hole", holeOpen && "filter-chip--active")}
+          onClick={() => setHoleOpen(true)}
+        >
+          <MessageSquare size={13} className="text-orange-500" />
+          {t("filter.hole")}
+        </button>
       </div>
+
+      <TreeHole isOpen={holeOpen} onClose={() => setHoleOpen(false)} />
     </div>
   );
 }

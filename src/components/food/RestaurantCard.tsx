@@ -25,7 +25,7 @@ const RestaurantCard = forwardRef<HTMLDivElement, Props>(({ restaurant: r }, ref
 
   const isSelected = selectedIds.includes(r.id);
   const isHovered = hoveredId === r.id;
-  const imageSrc = r.images[0] ? `/source/images/${r.images[0]}` : null;
+  const imageSrc = r.images[0] ? `/images/${r.images[0]}` : null;
 
   return (
     <div

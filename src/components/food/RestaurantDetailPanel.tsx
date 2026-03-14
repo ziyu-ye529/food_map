@@ -25,7 +25,7 @@ function DetailCard({
   onClose: () => void;
 }) {
   const { t } = useTranslation();
-  const imageSrc = r.images[0] ? `/source/images/${r.images[0]}` : null;
+  const imageSrc = r.images[0] ? `/images/${r.images[0]}` : null;
 
   return (
     <div className={cn("detail-card", isRemoving && "detail-card--removing")}>

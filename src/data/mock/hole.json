@@ -1,0 +1,28 @@
+[
+  {
+    "id": "post_1",
+    "author": "Sunny Day",
+    "school": "Fudan University",
+    "major": "Economics",
+    "content": "Does anyone know if Kebab Central has a student discount that stacks with their lunch special?",
+    "timestamp": "2024-03-14T10:30:00Z",
+    "replies": [
+      {
+        "author": "Foodie88",
+        "school": "Fudan University",
+        "major": "Business",
+        "content": "Yes! I used it yesterday. Just show your student ID.",
+        "timestamp": "2024-03-14T10:45:00Z"
+      }
+    ]
+  },
+  {
+    "id": "post_2",
+    "author": "LateStudy",
+    "school": "Tech Institute",
+    "major": "Physics",
+    "content": "Inja Book Cafe is the best place for overnight study sessions. Super quiet right now.",
+    "timestamp": "2024-03-14T02:00:00Z",
+    "replies": []
+  }
+]

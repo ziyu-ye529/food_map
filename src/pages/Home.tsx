@@ -5,8 +5,9 @@ import FilterBar from "@/components/food/FilterBar";
 import RestaurantList from "@/components/food/RestaurantList";
 import FoodMap from "@/components/food/FoodMap";
 import RestaurantDetailPanel from "@/components/food/RestaurantDetailPanel";
-import { MapPin, Globe } from "lucide-react";
+import { MapPin, Globe, User } from "lucide-react";
 import { cn } from "@/lib/utils";
+import userData from "@/data/mock/user.json";
 
 // Possible animation states for the panel content
 type LangTransition = "idle" | "out" | "in";
@@ -55,9 +56,16 @@ export default function Home() {
           <div className="food-panel__logo">
             <MapPin size={18} className="food-panel__logo-icon" />
           </div>
-          <div className={cn("flex-1", panelContentClass)}>
-            <h1 className="food-panel__title">{t("app.title")}</h1>
-            <p className="food-panel__subtitle">{t("app.subtitle")}</p>
+          <div className={cn("flex-1 min-w-0", panelContentClass)}>
+            <h1 className="food-panel__title truncate">{t("app.title")}</h1>
+            <div className="flex items-center gap-1.5 mt-0.5 opacity-80">
+              <p className="food-panel__subtitle">{t("app.subtitle")}</p>
+              <span className="text-[10px] text-gray-400">•</span>
+              <div className="flex items-center gap-1 text-[10px] text-gray-500 font-medium">
+                <User size={10} className="text-gray-400" />
+                <span>{userData.school} · {userData.major}</span>
+              </div>
+            </div>
           </div>
           <button
             className={cn("lang-toggle", spinning && "lang-toggle--spinning")}
