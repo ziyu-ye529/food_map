@@ -1,7 +1,7 @@
 /**
  * Hardcoded stable coordinates for 30 restaurants.
  * All within the "大学城" area: a ~2km × 2km grid around
- * Fudan University, Shanghai (121.4737°E, 31.2304°N).
+ * The University of Hong Kong, Shanghai (121.4737°E, 31.2304°N).
  *
  * Generated once with a seeded LCG, then fixed so markers
  * never drift and are visually well-distributed across the campus area.

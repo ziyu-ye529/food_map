@@ -22,7 +22,7 @@ interface AuthState {
 const MOCK_USER: User = {
   name: "Ziyu Ye",
   email: "ziyu.ye@fudan.edu.cn",
-  school: "Fudan University",
+  school: "The University of Hong Kong",
   major: "Computer Science",
   avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Ziyu"
 };
@@ -35,8 +35,8 @@ export const useAuthStore = create<AuthState>()(
       user: MOCK_USER,
       login: () => set({ isLoggedIn: true }),
       logout: () => set({ isLoggedIn: false }),
-      updateProfile: (data) => set((state) => ({ 
-        user: { ...state.user, ...data } 
+      updateProfile: (data) => set((state) => ({
+        user: { ...state.user, ...data }
       })),
       verifyIdentity: () => set({ isVerified: true }),
     }),

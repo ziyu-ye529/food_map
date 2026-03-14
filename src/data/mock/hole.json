@@ -2,14 +2,14 @@
   {
     "id": "post_1",
     "author": "Sunny Day",
-    "school": "Fudan University",
+    "school": "The University of Hong Kong",
     "major": "Economics",
     "content": "Does anyone know if Kebab Central has a student discount that stacks with their lunch special?",
     "timestamp": "2024-03-14T10:30:00Z",
     "replies": [
       {
         "author": "Foodie88",
-        "school": "Fudan University",
+        "school": "The University of Hong Kong",
         "major": "Business",
         "content": "Yes! I used it yesterday. Just show your student ID.",
         "timestamp": "2024-03-14T10:45:00Z"
