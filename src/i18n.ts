@@ -28,7 +28,9 @@ const resources = {
           Moderate: "Moderate",
           Loud: "Loud"
         },
-        reset: "Reset Filters"
+        reset: "Reset Filters",
+        more: "More",
+        tagsLabel: "Tags"
       },
       list: {
         found_one: "Found {{count}} restaurant",
@@ -139,7 +141,9 @@ const resources = {
           Moderate: "适中",
           Loud: "嘈杂"
         },
-        reset: "重置筛选"
+        reset: "重置筛选",
+        more: "更多",
+        tagsLabel: "标签"
       },
       list: {
         found_one: "找到 {{count}} 家餐厅",

@@ -1,4 +1,5 @@
-import { ChevronDown, Heart } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { ChevronDown, Heart, SlidersHorizontal, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useRestaurantStore, ALL_TAGS } from "@/stores/restaurantStore";
 import { cn } from "@/lib/utils";
@@ -7,6 +8,10 @@ const NOISE_LEVELS = ["All", "Quiet", "Moderate", "Loud"] as const;
 
 export default function FilterBar() {
   const { t } = useTranslation();
+  const [moreOpen, setMoreOpen] = useState(false);
+  const popoverRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+
   const filterOpenNow = useRestaurantStore((s) => s.filterOpenNow);
   const filterStudentDiscount = useRestaurantStore((s) => s.filterStudentDiscount);
   const filterWifi = useRestaurantStore((s) => s.filterWifi);
@@ -20,10 +25,36 @@ export default function FilterBar() {
   const setNoiseLevel = useRestaurantStore((s) => s.setNoiseLevel);
   const toggleTag = useRestaurantStore((s) => s.toggleTag);
 
+  // Count active "more" filters for the badge
+  const moreActiveCount = [
+    filterStudentDiscount,
+    filterWifi,
+    filterNoiseLevel !== "All",
+    filterTags.length > 0,
+  ].filter(Boolean).length;
+
+  // Close popover on outside click
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (
+        popoverRef.current &&
+        !popoverRef.current.contains(e.target as Node) &&
+        triggerRef.current &&
+        !triggerRef.current.contains(e.target as Node)
+      ) {
+        setMoreOpen(false);
+      }
+    }
+    if (moreOpen) document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [moreOpen]);
+
   return (
     <div className="filter-bar">
-      {/* Quick toggle chips */}
+      {/* ── Single row ── */}
       <div className="filter-bar__chips">
+
+        {/* Open Now */}
         <button
           className={cn("filter-chip", filterOpenNow && "filter-chip--active")}
           onClick={toggleOpenNow}
@@ -32,57 +63,92 @@ export default function FilterBar() {
           {t("filter.openNow")}
         </button>
 
+        {/* Favorites */}
         <button
-          className={cn("filter-chip", filterStudentDiscount && "filter-chip--active")}
-          onClick={toggleStudentDiscount}
-        >
-          🎓 {t("filter.studentDeals")}
-        </button>
-
-        <button
-          className={cn("filter-chip", filterWifi && "filter-chip--active")}
-          onClick={toggleWifi}
-        >
-          📶 {t("filter.wifi")}
-        </button>
-
-        <button
-          className={cn("filter-chip", filterFavorites && "filter-chip--active")}
+          className={cn("filter-chip filter-chip--icon", filterFavorites && "filter-chip--active filter-chip--fav")}
           onClick={toggleFavorites}
-          style={{ display: "flex", alignItems: "center", gap: "4px" }}
         >
-          <Heart size={14} fill={filterFavorites ? "currentColor" : "none"} className={filterFavorites ? "text-red-500" : ""} /> {t("filter.favorites")}
+          <Heart size={13} fill={filterFavorites ? "currentColor" : "none"} />
+          {t("filter.favorites")}
         </button>
 
-        {/* Noise level dropdown */}
-        <div className="filter-chip filter-chip--select">
-          <ChevronDown size={12} />
-          <select
-            className="filter-chip__select"
-            value={filterNoiseLevel}
-            onChange={(e) => setNoiseLevel(e.target.value as typeof filterNoiseLevel)}
-          >
-            {NOISE_LEVELS.map((level) => (
-              <option key={level} value={level}>
-                {level === "All" ? `🔊 ${t("filter.noise.All")}` : t(`filter.noise.${level}`)}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
-
-      {/* Tag chips */}
-      <div className="filter-bar__tags">
-        {ALL_TAGS.map((tag) => (
+        {/* More → popover */}
+        <div className="filter-more-wrap">
           <button
-            key={tag}
-            className={cn("tag-chip", filterTags.includes(tag) && "tag-chip--active")}
-            onClick={() => toggleTag(tag)}
+            ref={triggerRef}
+            className={cn("filter-chip filter-chip--more", moreOpen && "filter-chip--more-open", moreActiveCount > 0 && "filter-chip--active")}
+            onClick={() => setMoreOpen((v) => !v)}
           >
-            {t(`tags.${tag}`)}
+            <SlidersHorizontal size={13} />
+            {t("filter.more")}
+            {moreActiveCount > 0 && (
+              <span className="filter-more-badge">{moreActiveCount}</span>
+            )}
+            <ChevronDown size={11} className={cn("filter-more-chevron", moreOpen && "filter-more-chevron--open")} />
           </button>
-        ))}
+
+          {/* Popover panel */}
+          {moreOpen && (
+            <div ref={popoverRef} className="filter-popover">
+              <div className="filter-popover__header">
+                <span className="filter-popover__title">{t("filter.title")}</span>
+                <button className="filter-popover__close" onClick={() => setMoreOpen(false)}>
+                  <X size={14} />
+                </button>
+              </div>
+
+              {/* Student / WiFi chips */}
+              <div className="filter-popover__row">
+                <button
+                  className={cn("filter-chip filter-chip--sm", filterStudentDiscount && "filter-chip--active")}
+                  onClick={toggleStudentDiscount}
+                >
+                  🎓 {t("filter.studentDeals")}
+                </button>
+                <button
+                  className={cn("filter-chip filter-chip--sm", filterWifi && "filter-chip--active")}
+                  onClick={toggleWifi}
+                >
+                  📶 {t("filter.wifi")}
+                </button>
+              </div>
+
+              {/* Noise level — expanded buttons, no dropdown */}
+              <div className="filter-popover__section">
+                <p className="filter-popover__section-label">🔊 {t("filter.noise.label")}</p>
+                <div className="filter-popover__row filter-popover__row--wrap">
+                  {NOISE_LEVELS.map((level) => (
+                    <button
+                      key={level}
+                      className={cn("filter-chip filter-chip--sm", filterNoiseLevel === level && "filter-chip--active")}
+                      onClick={() => setNoiseLevel(level)}
+                    >
+                      {t(`filter.noise.${level}`)}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Tags */}
+              <div className="filter-popover__section">
+                <p className="filter-popover__section-label">🏷 {t("filter.tagsLabel")}</p>
+                <div className="filter-popover__row filter-popover__row--wrap">
+                  {ALL_TAGS.map((tag) => (
+                    <button
+                      key={tag}
+                      className={cn("tag-chip", filterTags.includes(tag) && "tag-chip--active")}
+                      onClick={() => toggleTag(tag)}
+                    >
+                      {t(`tags.${tag}`)}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
 }
+
