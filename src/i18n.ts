@@ -45,6 +45,7 @@ const resources = {
         logoutBtn: "Log Out",
         loginBtn: "Log In",
         notLoggedIn: "Please log in to see your campus profile",
+        clickToView: "Click to view profile",
       },
       list: {
         found_one: "Found {{count}} restaurant",
@@ -172,6 +173,7 @@ const resources = {
         logoutBtn: "退出登录",
         loginBtn: "立即登录",
         notLoggedIn: "请登录后查看您的校园个人主页",
+        clickToView: "点击查看资料",
       },
       list: {
         found_one: "找到 {{count}} 家餐厅",

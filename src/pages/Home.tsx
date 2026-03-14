@@ -5,7 +5,7 @@ import FilterBar from "@/components/food/FilterBar";
 import RestaurantList from "@/components/food/RestaurantList";
 import FoodMap from "@/components/food/FoodMap";
 import RestaurantDetailPanel from "@/components/food/RestaurantDetailPanel";
-import { MapPin, Globe, User as UserIcon } from "lucide-react";
+import { MapPin, Globe, User as UserIcon, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAuthStore } from '../stores/authStore';
 import { ProfileModal } from '../components/auth/ProfileModal';
@@ -59,24 +59,36 @@ export default function Home() {
           <div className="food-panel__logo">
             <MapPin size={18} className="food-panel__logo-icon" />
           </div>
-          <div className={cn("flex-1 min-w-0 cursor-pointer hover:opacity-80 transition-opacity", panelContentClass)} onClick={() => setProfileOpen(true)}>
-            <h1 className="food-panel__title truncate">{t("app.title")}</h1>
-            <div className="flex items-center gap-1.5 mt-0.5 opacity-80">
-              <p className="food-panel__subtitle">{t("app.subtitle")}</p>
-              {isLoggedIn ? (
+          <div className={cn("flex-1 min-w-0 cursor-pointer p-0.5 rounded-lg hover:bg-white/40 transition-all group", panelContentClass)} onClick={() => setProfileOpen(true)}>
+            <div className="flex items-center gap-2">
+              <h1 className="text-sm font-bold text-gray-900 tracking-tight whitespace-nowrap">
+                {t("app.title")}
+              </h1>
+              {isLoggedIn && (
                 <>
-                  <span className="text-[10px] text-gray-400">•</span>
-                  <div className="flex items-center gap-1 text-[10px] text-gray-500 font-medium">
-                    <UserIcon size={10} className="text-gray-400" />
-                    <span className="truncate max-w-[120px]">{user.school} · {user.major}</span>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <span className="text-[10px] text-gray-400">•</span>
-                  <span className="text-[10px] text-orange-500 font-bold">{t('profile.loginBtn')}</span>
+                  <span className="text-gray-300 font-light">|</span>
+                  <span className="text-sm font-medium text-gray-700 truncate">
+                    {user.name}
+                  </span>
                 </>
               )}
+            </div>
+            
+            <div className="flex items-center gap-2 mt-0.5">
+              {isLoggedIn ? (
+                <div className="flex items-center gap-1.5 text-[11px] text-gray-500 font-medium">
+                  <span className="truncate">{user.school}</span>
+                  <span className="text-gray-300 text-[10px]">·</span>
+                  <span className="truncate">{user.major}</span>
+                </div>
+              ) : (
+                <span className="text-[11px] text-orange-500 font-bold">{t('profile.loginBtn')}</span>
+              )}
+              
+              <div className="flex items-center gap-0.5 text-[10px] text-orange-400 font-bold opacity-0 group-hover:opacity-100 transition-opacity ml-auto">
+                <span>{t('profile.clickToView')}</span>
+                <ChevronDown size={10} className="-rotate-90" />
+              </div>
             </div>
           </div>
           <button
