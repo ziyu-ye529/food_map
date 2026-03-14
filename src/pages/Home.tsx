@@ -5,7 +5,7 @@ import FilterBar from "@/components/food/FilterBar";
 import RestaurantList from "@/components/food/RestaurantList";
 import FoodMap from "@/components/food/FoodMap";
 import RestaurantDetailPanel from "@/components/food/RestaurantDetailPanel";
-import { MapPin, Globe, User as UserIcon, ChevronDown } from "lucide-react";
+import { MapPin, Globe, User as UserIcon, ChevronDown, Settings } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAuthStore } from '../stores/authStore';
 import { ProfileModal } from '../components/auth/ProfileModal';
@@ -59,41 +59,45 @@ export default function Home() {
           <div className="food-panel__logo">
             <MapPin size={18} className="food-panel__logo-icon" />
           </div>
-          <div className={cn("flex-1 min-w-0 cursor-pointer p-0.5 rounded-lg hover:bg-white/40 transition-all group relative", panelContentClass)} onClick={() => setProfileOpen(true)}>
-            {/* Line 1: System Title */}
-            <h1 className="text-[13px] font-bold text-gray-900 tracking-tight flex items-center gap-2">
-              <span className="text-orange-600">●</span>
+          <div className={cn("flex-1 min-w-0 p-0.5 rounded-lg transition-all", panelContentClass)}>
+            {/* Line 1: Emoji + System Title */}
+            <h1 className="text-[20px] font-extrabold text-gray-900 tracking-tight flex items-center gap-2 leading-none">
+              <span className="text-xl">🍗</span>
               {t("app.title")}
             </h1>
             
             {/* Line 2: User Name */}
-            <div className="flex items-center gap-2 mt-0.5">
+            <div className="flex items-center gap-2 mt-1.5 ml-1">
               {isLoggedIn ? (
-                <span className="text-[13px] font-semibold text-gray-800">
+                <span className="text-[14px] font-bold text-gray-700">
                   {user.name}
                 </span>
               ) : (
-                <span className="text-[13px] text-orange-500 font-bold">{t('profile.loginBtn')}</span>
+                <span className="text-[14px] text-orange-500 font-bold cursor-pointer hover:underline" onClick={() => setProfileOpen(true)}>
+                  {t('profile.loginBtn')}
+                </span>
               )}
             </div>
 
             {/* Line 3: School · Major */}
             {isLoggedIn && (
-              <div className="flex items-center gap-1.5 mt-0.5 text-[11px] text-gray-500 font-medium">
+              <div className="flex items-center gap-1.5 mt-0.5 ml-1 text-[11px] text-gray-400 font-semibold">
                 <span className="truncate">{user.school}</span>
-                <span className="text-gray-300">·</span>
+                <span className="opacity-50">·</span>
                 <span className="truncate">{user.major}</span>
               </div>
             )}
-
-            {/* Click Cue */}
-            <div className="flex items-center gap-0.5 text-[9px] text-orange-400 font-bold opacity-0 group-hover:opacity-100 transition-opacity absolute right-0 top-1/2 -translate-y-1/2 pr-1">
-              <span>{t('profile.clickToView')}</span>
-              <ChevronDown size={8} className="-rotate-90" />
-            </div>
           </div>
 
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 flex items-center gap-2">
+            <button
+              className="lang-toggle lang-toggle--settings"
+              onClick={() => setProfileOpen(true)}
+              title={t('profile.title')}
+            >
+              <Settings size={16} className="text-gray-600" />
+            </button>
+            
             <button
               className={cn("lang-toggle", spinning && "lang-toggle--spinning")}
               onClick={toggleLanguage}

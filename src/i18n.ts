@@ -133,8 +133,8 @@ const resources = {
   zh: {
     translation: {
       app: {
-        title: "Campus Food Map",
-        subtitle: "大学城美食探索",
+        title: "大学城美食探索",
+        subtitle: "Campus Food Map",
       },
       search: {
         placeholder: "搜索餐厅名或菜系…",
