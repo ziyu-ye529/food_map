@@ -34,6 +34,18 @@ const resources = {
         hole: "Tree Hole",
         reply: "Reply"
       },
+      profile: {
+        title: "Account",
+        school: "School",
+        major: "Major",
+        verified: "Verified Student",
+        verifyBtn: "Verify Identity",
+        editBtn: "Edit Profile",
+        saveBtn: "Save Changes",
+        logoutBtn: "Log Out",
+        loginBtn: "Log In",
+        notLoggedIn: "Please log in to see your campus profile",
+      },
       list: {
         found_one: "Found {{count}} restaurant",
         found_other: "Found {{count}} restaurants",
@@ -148,6 +160,18 @@ const resources = {
         tagsLabel: "标签",
         hole: "树洞",
         reply: "回复"
+      },
+      profile: {
+        title: "个人中心",
+        school: "就读学校",
+        major: "专业名称",
+        verified: "已验证学生身份",
+        verifyBtn: "验证学生身份",
+        editBtn: "编辑资料",
+        saveBtn: "保存修改",
+        logoutBtn: "退出登录",
+        loginBtn: "立即登录",
+        notLoggedIn: "请登录后查看您的校园个人主页",
       },
       list: {
         found_one: "找到 {{count}} 家餐厅",

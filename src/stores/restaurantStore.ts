@@ -141,9 +141,7 @@ export const useRestaurantStore = create<RestaurantState>((set) => ({
 
 // Derived selectors
 export function selectFilteredRestaurants(state: RestaurantState): Restaurant[] {
-  const filtered = applyFilters(state.restaurants, state);
-  // Sort by distance from close to far
-  return filtered.sort((a, b) => a.distance - b.distance);
+  return applyFilters(state.restaurants, state);
 }
 
 export function selectHasActiveFilters(state: RestaurantState): boolean {
