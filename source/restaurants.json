@@ -1,0 +1,884 @@
+[
+    {
+        "id": "res_1001",
+        "name": "Inja Book Cafe",
+        "cuisine": "Italian",
+        "contact": "+1 555-0110",
+        "rating": 3.8,
+        "review": "Perfect for late night cravings.",
+        "pricePerPerson": 10,
+        "waitTime": 45,
+        "distance": 100,
+        "hasStudentDiscount": false,
+        "studyFriendly": {
+            "hasWifi": true,
+            "powerOutlets": "Many",
+            "noiseLevel": "Quiet"
+        },
+        "tags": [
+            "Late Night Bites"
+        ],
+        "dietaryOptions": [
+            "Halal",
+            "Vegetarian"
+        ],
+        "operatingHours": "24 Hours",
+        "isOpenNow": true,
+        "images": [
+            "1.png"
+        ],
+        "isSaved": false
+    },
+    {
+        "id": "res_1002",
+        "name": "Reza Loghmeh",
+        "cuisine": "Fast Food",
+        "contact": "+1 555-0111",
+        "rating": 4.6,
+        "review": "People here talk about the kebabs, good service...",
+        "pricePerPerson": 40,
+        "waitTime": 15,
+        "distance": 500,
+        "hasStudentDiscount": true,
+        "studyFriendly": {
+            "hasWifi": true,
+            "powerOutlets": "Few",
+            "noiseLevel": "Quiet"
+        },
+        "tags": [
+            "Date Night",
+            "Cheap Eats"
+        ],
+        "dietaryOptions": [],
+        "operatingHours": "24 Hours",
+        "isOpenNow": true,
+        "images": [
+            "2.png"
+        ],
+        "isSaved": false
+    },
+    {
+        "id": "res_1003",
+        "name": "Godo Lolagar",
+        "cuisine": "Mexican",
+        "contact": "+1 555-0112",
+        "rating": 5.0,
+        "review": "Great place for students, free wifi!",
+        "pricePerPerson": 10,
+        "waitTime": 45,
+        "distance": 500,
+        "hasStudentDiscount": false,
+        "studyFriendly": {
+            "hasWifi": true,
+            "powerOutlets": "None",
+            "noiseLevel": "Quiet"
+        },
+        "tags": [
+            "Quick Bite"
+        ],
+        "dietaryOptions": [
+            "Vegetarian"
+        ],
+        "operatingHours": "24 Hours",
+        "isOpenNow": true,
+        "images": [
+            "3.png"
+        ],
+        "isSaved": true
+    },
+    {
+        "id": "res_1004",
+        "name": "Campus Wok",
+        "cuisine": "Mexican",
+        "contact": "+1 555-0113",
+        "rating": 4.5,
+        "review": "A bit crowded but the food is worth it.",
+        "pricePerPerson": 15,
+        "waitTime": 15,
+        "distance": 500,
+        "hasStudentDiscount": true,
+        "studyFriendly": {
+            "hasWifi": false,
+            "powerOutlets": "None",
+            "noiseLevel": "Loud"
+        },
+        "tags": [
+            "Group Friendly"
+        ],
+        "dietaryOptions": [
+            "Gluten-Free"
+        ],
+        "operatingHours": "10:00 AM - 10:00 PM",
+        "isOpenNow": true,
+        "images": [
+            "4.png"
+        ],
+        "isSaved": false
+    },
+    {
+        "id": "res_1005",
+        "name": "Midnight Bites",
+        "cuisine": "Sushi",
+        "contact": "+1 555-0114",
+        "rating": 4.5,
+        "review": "everything was surprising, Sandwiches are the best...",
+        "pricePerPerson": 15,
+        "waitTime": 0,
+        "distance": 500,
+        "hasStudentDiscount": false,
+        "studyFriendly": {
+            "hasWifi": false,
+            "powerOutlets": "Many",
+            "noiseLevel": "Quiet"
+        },
+        "tags": [
+            "Quick Bite",
+            "Date Night"
+        ],
+        "dietaryOptions": [],
+        "operatingHours": "10:00 AM - 10:00 PM",
+        "isOpenNow": false,
+        "images": [
+            "5.png"
+        ],
+        "isSaved": false
+    },
+    {
+        "id": "res_1006",
+        "name": "Sushi Sensation",
+        "cuisine": "Fast Food",
+        "contact": "+1 555-0115",
+        "rating": 4.4,
+        "review": "Affordable and delicious.",
+        "pricePerPerson": 40,
+        "waitTime": 15,
+        "distance": 300,
+        "hasStudentDiscount": true,
+        "studyFriendly": {
+            "hasWifi": false,
+            "powerOutlets": "Many",
+            "noiseLevel": "Quiet"
+        },
+        "tags": [
+            "Study Cafes",
+            "Quick Bite"
+        ],
+        "dietaryOptions": [
+            "Halal",
+            "Gluten-Free"
+        ],
+        "operatingHours": "10:00 AM - 10:00 PM",
+        "isOpenNow": true,
+        "images": [
+            "6.png"
+        ],
+        "isSaved": false
+    },
+    {
+        "id": "res_1007",
+        "name": "The Daily Grind",
+        "cuisine": "Middle Eastern",
+        "contact": "+1 555-0116",
+        "rating": 4.3,
+        "review": "Affordable and delicious.",
+        "pricePerPerson": 10,
+        "waitTime": 0,
+        "distance": 2000,
+        "hasStudentDiscount": false,
+        "studyFriendly": {
+            "hasWifi": false,
+            "powerOutlets": "Many",
+            "noiseLevel": "Moderate"
+        },
+        "tags": [
+            "Group Friendly"
+        ],
+        "dietaryOptions": [
+            "Gluten-Free"
+        ],
+        "operatingHours": "10:00 AM - 10:00 PM",
+        "isOpenNow": false,
+        "images": [
+            "7.png"
+        ],
+        "isSaved": false
+    },
+    {
+        "id": "res_1008",
+        "name": "Pita Pocket",
+        "cuisine": "Middle Eastern",
+        "contact": "+1 555-0117",
+        "rating": 4.8,
+        "review": "A bit crowded but the food is worth it.",
+        "pricePerPerson": 15,
+        "waitTime": 10,
+        "distance": 500,
+        "hasStudentDiscount": true,
+        "studyFriendly": {
+            "hasWifi": true,
+            "powerOutlets": "None",
+            "noiseLevel": "Moderate"
+        },
+        "tags": [
+            "Date Night"
+        ],
+        "dietaryOptions": [],
+        "operatingHours": "10:00 AM - 10:00 PM",
+        "isOpenNow": true,
+        "images": [
+            "8.png"
+        ],
+        "isSaved": false
+    },
+    {
+        "id": "res_1009",
+        "name": "Dragon Express",
+        "cuisine": "Fast Food",
+        "contact": "+1 555-0118",
+        "rating": 4.6,
+        "review": "everything was surprising, Sandwiches are the best...",
+        "pricePerPerson": 15,
+        "waitTime": 10,
+        "distance": 2000,
+        "hasStudentDiscount": false,
+        "studyFriendly": {
+            "hasWifi": true,
+            "powerOutlets": "Few",
+            "noiseLevel": "Loud"
+        },
+        "tags": [
+            "Study Cafes"
+        ],
+        "dietaryOptions": [
+            "Vegetarian",
+            "Gluten-Free"
+        ],
+        "operatingHours": "10:00 AM - 10:00 PM",
+        "isOpenNow": false,
+        "images": [
+            "9.png"
+        ],
+        "isSaved": true
+    },
+    {
+        "id": "res_1010",
+        "name": "Taco Fiesta",
+        "cuisine": "Italian",
+        "contact": "+1 555-0119",
+        "rating": 3.7,
+        "review": "People here talk about the kebabs, good service...",
+        "pricePerPerson": 10,
+        "waitTime": 15,
+        "distance": 100,
+        "hasStudentDiscount": true,
+        "studyFriendly": {
+            "hasWifi": true,
+            "powerOutlets": "Many",
+            "noiseLevel": "Quiet"
+        },
+        "tags": [
+            "Group Friendly",
+            "Cheap Eats"
+        ],
+        "dietaryOptions": [
+            "Gluten-Free"
+        ],
+        "operatingHours": "10:00 AM - 10:00 PM",
+        "isOpenNow": true,
+        "images": [
+            "10.png"
+        ],
+        "isSaved": false
+    },
+    {
+        "id": "res_1011",
+        "name": "Library Cafe",
+        "cuisine": "Cafe",
+        "contact": "+1 555-0120",
+        "rating": 4.3,
+        "review": "Perfect for late night cravings.",
+        "pricePerPerson": 40,
+        "waitTime": 10,
+        "distance": 800,
+        "hasStudentDiscount": false,
+        "studyFriendly": {
+            "hasWifi": true,
+            "powerOutlets": "Many",
+            "noiseLevel": "Quiet"
+        },
+        "tags": [
+            "Study Cafes",
+            "Cheap Eats",
+            "Group Friendly"
+        ],
+        "dietaryOptions": [],
+        "operatingHours": "10:00 AM - 10:00 PM",
+        "isOpenNow": false,
+        "images": [
+            "11.png"
+        ],
+        "isSaved": true
+    },
+    {
+        "id": "res_1012",
+        "name": "Burger Joint",
+        "cuisine": "Italian",
+        "contact": "+1 555-0121",
+        "rating": 4.7,
+        "review": "everything was surprising, Sandwiches are the best...",
+        "pricePerPerson": 15,
+        "waitTime": 10,
+        "distance": 300,
+        "hasStudentDiscount": false,
+        "studyFriendly": {
+            "hasWifi": true,
+            "powerOutlets": "Few",
+            "noiseLevel": "Quiet"
+        },
+        "tags": [
+            "Quick Bite",
+            "Late Night Bites",
+            "Date Night"
+        ],
+        "dietaryOptions": [
+            "Halal"
+        ],
+        "operatingHours": "24 Hours",
+        "isOpenNow": true,
+        "images": [
+            "12.png"
+        ],
+        "isSaved": true
+    },
+    {
+        "id": "res_1013",
+        "name": "Green Bowl",
+        "cuisine": "Cafe",
+        "contact": "+1 555-0122",
+        "rating": 3.7,
+        "review": "Great place for students, free wifi!",
+        "pricePerPerson": 40,
+        "waitTime": 10,
+        "distance": 800,
+        "hasStudentDiscount": true,
+        "studyFriendly": {
+            "hasWifi": true,
+            "powerOutlets": "Few",
+            "noiseLevel": "Quiet"
+        },
+        "tags": [
+            "Date Night",
+            "Late Night Bites",
+            "Quick Bite"
+        ],
+        "dietaryOptions": [],
+        "operatingHours": "10:00 AM - 10:00 PM",
+        "isOpenNow": false,
+        "images": [
+            "13.png"
+        ],
+        "isSaved": false
+    },
+    {
+        "id": "res_1014",
+        "name": "Pasta Bar",
+        "cuisine": "Sushi",
+        "contact": "+1 555-0123",
+        "rating": 3.8,
+        "review": "People here talk about the kebabs, good service...",
+        "pricePerPerson": 10,
+        "waitTime": 45,
+        "distance": 2000,
+        "hasStudentDiscount": true,
+        "studyFriendly": {
+            "hasWifi": false,
+            "powerOutlets": "Many",
+            "noiseLevel": "Quiet"
+        },
+        "tags": [
+            "Quick Bite",
+            "Date Night",
+            "Group Friendly"
+        ],
+        "dietaryOptions": [],
+        "operatingHours": "10:00 AM - 10:00 PM",
+        "isOpenNow": true,
+        "images": [
+            "14.png"
+        ],
+        "isSaved": true
+    },
+    {
+        "id": "res_1015",
+        "name": "Shawarma King",
+        "cuisine": "Cafe",
+        "contact": "+1 555-0124",
+        "rating": 4.9,
+        "review": "Affordable and delicious.",
+        "pricePerPerson": 15,
+        "waitTime": 45,
+        "distance": 1200,
+        "hasStudentDiscount": true,
+        "studyFriendly": {
+            "hasWifi": true,
+            "powerOutlets": "Few",
+            "noiseLevel": "Loud"
+        },
+        "tags": [
+            "Late Night Bites",
+            "Study Cafes",
+            "Group Friendly"
+        ],
+        "dietaryOptions": [],
+        "operatingHours": "10:00 AM - 10:00 PM",
+        "isOpenNow": false,
+        "images": [
+            "15.png"
+        ],
+        "isSaved": false
+    },
+    {
+        "id": "res_1016",
+        "name": "Matcha Lane",
+        "cuisine": "Fast Food",
+        "contact": "+1 555-0125",
+        "rating": 4.0,
+        "review": "everything was surprising, Sandwiches are the best...",
+        "pricePerPerson": 10,
+        "waitTime": 30,
+        "distance": 1200,
+        "hasStudentDiscount": true,
+        "studyFriendly": {
+            "hasWifi": true,
+            "powerOutlets": "None",
+            "noiseLevel": "Quiet"
+        },
+        "tags": [
+            "Group Friendly",
+            "Study Cafes"
+        ],
+        "dietaryOptions": [
+            "Halal",
+            "Vegan"
+        ],
+        "operatingHours": "10:00 AM - 10:00 PM",
+        "isOpenNow": true,
+        "images": [
+            "16.png"
+        ],
+        "isSaved": true
+    },
+    {
+        "id": "res_1017",
+        "name": "Dim Sum Dash",
+        "cuisine": "Chinese",
+        "contact": "+1 555-0126",
+        "rating": 5.0,
+        "review": "Perfect for late night cravings.",
+        "pricePerPerson": 10,
+        "waitTime": 45,
+        "distance": 500,
+        "hasStudentDiscount": true,
+        "studyFriendly": {
+            "hasWifi": true,
+            "powerOutlets": "Few",
+            "noiseLevel": "Quiet"
+        },
+        "tags": [
+            "Study Cafes",
+            "Group Friendly"
+        ],
+        "dietaryOptions": [
+            "Halal",
+            "Gluten-Free"
+        ],
+        "operatingHours": "10:00 AM - 10:00 PM",
+        "isOpenNow": true,
+        "images": [
+            "17.png"
+        ],
+        "isSaved": false
+    },
+    {
+        "id": "res_1018",
+        "name": "Kebab Central",
+        "cuisine": "Fast Food",
+        "contact": "+1 555-0127",
+        "rating": 3.6,
+        "review": "Great place for students, free wifi!",
+        "pricePerPerson": 25,
+        "waitTime": 0,
+        "distance": 100,
+        "hasStudentDiscount": false,
+        "studyFriendly": {
+            "hasWifi": true,
+            "powerOutlets": "None",
+            "noiseLevel": "Moderate"
+        },
+        "tags": [
+            "Quick Bite",
+            "Cheap Eats",
+            "Group Friendly"
+        ],
+        "dietaryOptions": [
+            "Vegetarian"
+        ],
+        "operatingHours": "24 Hours",
+        "isOpenNow": false,
+        "images": [
+            "18.png"
+        ],
+        "isSaved": true
+    },
+    {
+        "id": "res_1019",
+        "name": "Noodle House",
+        "cuisine": "Cafe",
+        "contact": "+1 555-0128",
+        "rating": 4.3,
+        "review": "A bit crowded but the food is worth it.",
+        "pricePerPerson": 15,
+        "waitTime": 30,
+        "distance": 300,
+        "hasStudentDiscount": true,
+        "studyFriendly": {
+            "hasWifi": false,
+            "powerOutlets": "Few",
+            "noiseLevel": "Quiet"
+        },
+        "tags": [
+            "Quick Bite"
+        ],
+        "dietaryOptions": [],
+        "operatingHours": "10:00 AM - 10:00 PM",
+        "isOpenNow": true,
+        "images": [
+            "19.png"
+        ],
+        "isSaved": false
+    },
+    {
+        "id": "res_1020",
+        "name": "Bento Box",
+        "cuisine": "Mexican",
+        "contact": "+1 555-0129",
+        "rating": 4.8,
+        "review": "People here talk about the kebabs, good service...",
+        "pricePerPerson": 40,
+        "waitTime": 0,
+        "distance": 300,
+        "hasStudentDiscount": false,
+        "studyFriendly": {
+            "hasWifi": false,
+            "powerOutlets": "None",
+            "noiseLevel": "Loud"
+        },
+        "tags": [
+            "Group Friendly",
+            "Date Night",
+            "Study Cafes"
+        ],
+        "dietaryOptions": [],
+        "operatingHours": "10:00 AM - 10:00 PM",
+        "isOpenNow": false,
+        "images": [
+            "20.png"
+        ],
+        "isSaved": false
+    },
+    {
+        "id": "res_1021",
+        "name": "Espresso Lab",
+        "cuisine": "Mexican",
+        "contact": "+1 555-0130",
+        "rating": 3.8,
+        "review": "Great place for students, free wifi!",
+        "pricePerPerson": 25,
+        "waitTime": 15,
+        "distance": 300,
+        "hasStudentDiscount": true,
+        "studyFriendly": {
+            "hasWifi": true,
+            "powerOutlets": "None",
+            "noiseLevel": "Quiet"
+        },
+        "tags": [
+            "Group Friendly"
+        ],
+        "dietaryOptions": [],
+        "operatingHours": "10:00 AM - 10:00 PM",
+        "isOpenNow": false,
+        "images": [
+            "21.png"
+        ],
+        "isSaved": false
+    },
+    {
+        "id": "res_1022",
+        "name": "Pizza Corner",
+        "cuisine": "Chinese",
+        "contact": "+1 555-0131",
+        "rating": 3.7,
+        "review": "A bit crowded but the food is worth it.",
+        "pricePerPerson": 15,
+        "waitTime": 45,
+        "distance": 500,
+        "hasStudentDiscount": true,
+        "studyFriendly": {
+            "hasWifi": true,
+            "powerOutlets": "None",
+            "noiseLevel": "Moderate"
+        },
+        "tags": [
+            "Date Night",
+            "Group Friendly",
+            "Cheap Eats"
+        ],
+        "dietaryOptions": [],
+        "operatingHours": "10:00 AM - 10:00 PM",
+        "isOpenNow": false,
+        "images": [
+            "22.png"
+        ],
+        "isSaved": true
+    },
+    {
+        "id": "res_1023",
+        "name": "Falafel Hub",
+        "cuisine": "Sushi",
+        "contact": "+1 555-0132",
+        "rating": 4.3,
+        "review": "Affordable and delicious.",
+        "pricePerPerson": 15,
+        "waitTime": 15,
+        "distance": 800,
+        "hasStudentDiscount": true,
+        "studyFriendly": {
+            "hasWifi": false,
+            "powerOutlets": "None",
+            "noiseLevel": "Moderate"
+        },
+        "tags": [
+            "Study Cafes",
+            "Cheap Eats",
+            "Late Night Bites"
+        ],
+        "dietaryOptions": [
+            "Gluten-Free",
+            "Vegetarian"
+        ],
+        "operatingHours": "10:00 AM - 10:00 PM",
+        "isOpenNow": true,
+        "images": [
+            "23.png"
+        ],
+        "isSaved": false
+    },
+    {
+        "id": "res_1024",
+        "name": "Wrap It Up",
+        "cuisine": "Italian",
+        "contact": "+1 555-0133",
+        "rating": 3.7,
+        "review": "Great place for students, free wifi!",
+        "pricePerPerson": 40,
+        "waitTime": 10,
+        "distance": 1200,
+        "hasStudentDiscount": false,
+        "studyFriendly": {
+            "hasWifi": false,
+            "powerOutlets": "None",
+            "noiseLevel": "Quiet"
+        },
+        "tags": [
+            "Cheap Eats",
+            "Group Friendly"
+        ],
+        "dietaryOptions": [
+            "Halal",
+            "Gluten-Free"
+        ],
+        "operatingHours": "10:00 AM - 10:00 PM",
+        "isOpenNow": true,
+        "images": [
+            "24.png"
+        ],
+        "isSaved": false
+    },
+    {
+        "id": "res_1025",
+        "name": "Sweet Tooth",
+        "cuisine": "Sushi",
+        "contact": "+1 555-0134",
+        "rating": 3.8,
+        "review": "everything was surprising, Sandwiches are the best...",
+        "pricePerPerson": 25,
+        "waitTime": 45,
+        "distance": 2000,
+        "hasStudentDiscount": false,
+        "studyFriendly": {
+            "hasWifi": true,
+            "powerOutlets": "Many",
+            "noiseLevel": "Loud"
+        },
+        "tags": [
+            "Group Friendly",
+            "Study Cafes"
+        ],
+        "dietaryOptions": [
+            "Gluten-Free",
+            "Halal"
+        ],
+        "operatingHours": "10:00 AM - 10:00 PM",
+        "isOpenNow": true,
+        "images": [
+            "25.png"
+        ],
+        "isSaved": false
+    },
+    {
+        "id": "res_1026",
+        "name": "Curry House",
+        "cuisine": "Middle Eastern",
+        "contact": "+1 555-0135",
+        "rating": 4.6,
+        "review": "Great place for students, free wifi!",
+        "pricePerPerson": 40,
+        "waitTime": 30,
+        "distance": 300,
+        "hasStudentDiscount": true,
+        "studyFriendly": {
+            "hasWifi": true,
+            "powerOutlets": "Many",
+            "noiseLevel": "Moderate"
+        },
+        "tags": [
+            "Group Friendly"
+        ],
+        "dietaryOptions": [
+            "Vegan"
+        ],
+        "operatingHours": "24 Hours",
+        "isOpenNow": false,
+        "images": [
+            "26.png"
+        ],
+        "isSaved": true
+    },
+    {
+        "id": "res_1027",
+        "name": "Salad Days",
+        "cuisine": "Sushi",
+        "contact": "+1 555-0136",
+        "rating": 4.4,
+        "review": "Perfect for late night cravings.",
+        "pricePerPerson": 40,
+        "waitTime": 45,
+        "distance": 800,
+        "hasStudentDiscount": true,
+        "studyFriendly": {
+            "hasWifi": false,
+            "powerOutlets": "Few",
+            "noiseLevel": "Moderate"
+        },
+        "tags": [
+            "Group Friendly"
+        ],
+        "dietaryOptions": [
+            "Halal",
+            "Vegan"
+        ],
+        "operatingHours": "10:00 AM - 10:00 PM",
+        "isOpenNow": false,
+        "images": [
+            "27.png"
+        ],
+        "isSaved": true
+    },
+    {
+        "id": "res_1028",
+        "name": "The Breakfast Club",
+        "cuisine": "Chinese",
+        "contact": "+1 555-0137",
+        "rating": 3.9,
+        "review": "A bit crowded but the food is worth it.",
+        "pricePerPerson": 10,
+        "waitTime": 10,
+        "distance": 300,
+        "hasStudentDiscount": true,
+        "studyFriendly": {
+            "hasWifi": false,
+            "powerOutlets": "None",
+            "noiseLevel": "Quiet"
+        },
+        "tags": [
+            "Late Night Bites",
+            "Cheap Eats"
+        ],
+        "dietaryOptions": [],
+        "operatingHours": "10:00 AM - 10:00 PM",
+        "isOpenNow": true,
+        "images": [
+            "28.png"
+        ],
+        "isSaved": false
+    },
+    {
+        "id": "res_1029",
+        "name": "Waffle House",
+        "cuisine": "Sushi",
+        "contact": "+1 555-0138",
+        "rating": 4.9,
+        "review": "Affordable and delicious.",
+        "pricePerPerson": 10,
+        "waitTime": 45,
+        "distance": 800,
+        "hasStudentDiscount": false,
+        "studyFriendly": {
+            "hasWifi": true,
+            "powerOutlets": "Few",
+            "noiseLevel": "Moderate"
+        },
+        "tags": [
+            "Study Cafes"
+        ],
+        "dietaryOptions": [
+            "Gluten-Free"
+        ],
+        "operatingHours": "10:00 AM - 10:00 PM",
+        "isOpenNow": false,
+        "images": [
+            "29.png"
+        ],
+        "isSaved": true
+    },
+    {
+        "id": "res_1030",
+        "name": "Steak & Grill",
+        "cuisine": "Sushi",
+        "contact": "+1 555-0139",
+        "rating": 3.5,
+        "review": "A bit crowded but the food is worth it.",
+        "pricePerPerson": 40,
+        "waitTime": 10,
+        "distance": 800,
+        "hasStudentDiscount": true,
+        "studyFriendly": {
+            "hasWifi": true,
+            "powerOutlets": "Few",
+            "noiseLevel": "Loud"
+        },
+        "tags": [
+            "Cheap Eats"
+        ],
+        "dietaryOptions": [
+            "Gluten-Free"
+        ],
+        "operatingHours": "10:00 AM - 10:00 PM",
+        "isOpenNow": true,
+        "images": [
+            "30.png"
+        ],
+        "isSaved": false
+    }
+]
