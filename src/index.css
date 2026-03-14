@@ -338,11 +338,17 @@ html, body, #root {
 
 .filter-bar__chips {
   display: flex;
-  gap: 6px;
-  align-items: center;
-  /* Single row */
+  /* Single row with horizontal scroll */
   flex-wrap: nowrap;
-  overflow: visible;
+  overflow-x: auto;
+  overflow-y: visible;
+  padding-bottom: 4px;
+  margin-bottom: -4px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.filter-bar__chips::-webkit-scrollbar {
+  display: none;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -453,10 +459,8 @@ html, body, #root {
 
 /* Popover panel */
 .filter-popover {
-  position: absolute;
-  top: calc(100% + 8px);
-  left: 0;
-  z-index: 200;
+  position: fixed;
+  z-index: 1000;
   background: white;
   border: 1px solid #e2e8f0;
   border-radius: 14px;
