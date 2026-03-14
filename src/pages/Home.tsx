@@ -78,12 +78,11 @@ export default function Home() {
               )}
             </div>
 
-            {/* Line 3: School · Major */}
+            {/* Line 3: School & Major */}
             {isLoggedIn && (
-              <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 mt-1 ml-0.5 text-[12px] text-gray-500 font-semibold leading-relaxed">
-                <span>{user.school}</span>
-                <span className="text-gray-300">·</span>
-                <span>{user.major}</span>
+              <div className="mt-1 ml-0.5 text-[12px] text-gray-500 font-semibold leading-relaxed">
+                <div>{user.school}</div>
+                <div>{user.major}</div>
               </div>
             )}
           </div>
