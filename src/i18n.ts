@@ -29,7 +29,7 @@ const resources = {
           Loud: "Loud"
         },
         reset: "Reset Filters",
-        more: "More",
+        more: "Filter",
         tagsLabel: "Tags",
         hole: "Tree Hole",
         reply: "Reply"
@@ -144,7 +144,7 @@ const resources = {
           Loud: "嘈杂"
         },
         reset: "重置筛选",
-        more: "更多",
+        more: "筛选",
         tagsLabel: "标签",
         hole: "树洞",
         reply: "回复"

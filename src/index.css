@@ -340,12 +340,9 @@ html, body, #root {
   display: flex;
   gap: 6px;
   align-items: center;
-  /* Single row with horizontal scroll if needed */
+  /* Single row */
   flex-wrap: nowrap;
-  overflow-x: auto;
-  overflow-y: visible;
-  padding-bottom: 4px; /* Space for hidden scrollbar area */
-  margin-bottom: -4px;
+  overflow: visible;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
