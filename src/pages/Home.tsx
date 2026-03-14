@@ -59,48 +59,52 @@ export default function Home() {
           <div className="food-panel__logo">
             <MapPin size={18} className="food-panel__logo-icon" />
           </div>
-          <div className={cn("flex-1 min-w-0 cursor-pointer p-0.5 rounded-lg hover:bg-white/40 transition-all group", panelContentClass)} onClick={() => setProfileOpen(true)}>
-            <div className="flex items-center gap-2">
-              <h1 className="text-sm font-bold text-gray-900 tracking-tight whitespace-nowrap">
-                {t("app.title")}
-              </h1>
-              {isLoggedIn && (
-                <>
-                  <span className="text-gray-300 font-light">|</span>
-                  <span className="text-sm font-medium text-gray-700 truncate">
-                    {user.name}
-                  </span>
-                </>
-              )}
-            </div>
+          <div className={cn("flex-1 min-w-0 cursor-pointer p-0.5 rounded-lg hover:bg-white/40 transition-all group relative", panelContentClass)} onClick={() => setProfileOpen(true)}>
+            {/* Line 1: System Title */}
+            <h1 className="text-[13px] font-bold text-gray-900 tracking-tight flex items-center gap-2">
+              <span className="text-orange-600">●</span>
+              {t("app.title")}
+            </h1>
             
+            {/* Line 2: User Name */}
             <div className="flex items-center gap-2 mt-0.5">
               {isLoggedIn ? (
-                <div className="flex items-center gap-1.5 text-[11px] text-gray-500 font-medium">
-                  <span className="truncate">{user.school}</span>
-                  <span className="text-gray-300 text-[10px]">·</span>
-                  <span className="truncate">{user.major}</span>
-                </div>
+                <span className="text-[13px] font-semibold text-gray-800">
+                  {user.name}
+                </span>
               ) : (
-                <span className="text-[11px] text-orange-500 font-bold">{t('profile.loginBtn')}</span>
+                <span className="text-[13px] text-orange-500 font-bold">{t('profile.loginBtn')}</span>
               )}
-              
-              <div className="flex items-center gap-0.5 text-[10px] text-orange-400 font-bold opacity-0 group-hover:opacity-100 transition-opacity ml-auto">
-                <span>{t('profile.clickToView')}</span>
-                <ChevronDown size={10} className="-rotate-90" />
+            </div>
+
+            {/* Line 3: School · Major */}
+            {isLoggedIn && (
+              <div className="flex items-center gap-1.5 mt-0.5 text-[11px] text-gray-500 font-medium">
+                <span className="truncate">{user.school}</span>
+                <span className="text-gray-300">·</span>
+                <span className="truncate">{user.major}</span>
               </div>
+            )}
+
+            {/* Click Cue */}
+            <div className="flex items-center gap-0.5 text-[9px] text-orange-400 font-bold opacity-0 group-hover:opacity-100 transition-opacity absolute right-0 top-1/2 -translate-y-1/2 pr-1">
+              <span>{t('profile.clickToView')}</span>
+              <ChevronDown size={8} className="-rotate-90" />
             </div>
           </div>
-          <button
-            className={cn("lang-toggle", spinning && "lang-toggle--spinning")}
-            onClick={toggleLanguage}
-            title="Toggle Language"
-          >
-            <Globe size={16} className="lang-toggle-icon" />
-            <span className={panelContentClass}>
-              {i18n.language === "en" ? "中" : "EN"}
-            </span>
-          </button>
+
+          <div className="flex-shrink-0">
+            <button
+              className={cn("lang-toggle", spinning && "lang-toggle--spinning")}
+              onClick={toggleLanguage}
+              title="Toggle Language"
+            >
+              <Globe size={16} className="lang-toggle-icon" />
+              <span className={panelContentClass}>
+                {i18n.language === "en" ? "中" : "EN"}
+              </span>
+            </button>
+          </div>
         </div>
         <div className={cn("food-panel__search", panelContentClass)}>
           <SearchBar />
