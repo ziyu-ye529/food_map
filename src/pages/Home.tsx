@@ -56,12 +56,12 @@ export default function Home() {
       {/* ── Left Panel ─────────────────────────── */}
       <aside className="food-panel">
         <div className="food-panel__header">
-          <div className="food-panel__logo !bg-transparent !shadow-none !w-auto !h-auto">
-            <span className="text-3xl filter drop-shadow-sm">🍗</span>
+          <div className="food-panel__logo">
+            <MapPin size={20} className="food-panel__logo-icon" />
           </div>
           <div className={cn("flex-1 min-w-0 p-0.5 rounded-lg transition-all", panelContentClass)}>
             {/* Line 1: System Title */}
-            <h1 className="text-[22px] font-black text-gray-900 tracking-tight leading-none mb-1">
+            <h1 className="text-[20px] font-black text-gray-900 tracking-tight leading-none mb-1 whitespace-nowrap">
               {t("app.title")}
             </h1>
             
