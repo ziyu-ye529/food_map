@@ -56,20 +56,19 @@ export default function Home() {
       {/* ── Left Panel ─────────────────────────── */}
       <aside className="food-panel">
         <div className="food-panel__header">
-          <div className="food-panel__logo">
-            <MapPin size={18} className="food-panel__logo-icon" />
+          <div className="food-panel__logo !bg-transparent !shadow-none !w-auto !h-auto">
+            <span className="text-3xl filter drop-shadow-sm">🍗</span>
           </div>
           <div className={cn("flex-1 min-w-0 p-0.5 rounded-lg transition-all", panelContentClass)}>
-            {/* Line 1: Emoji + System Title */}
-            <h1 className="text-[20px] font-extrabold text-gray-900 tracking-tight flex items-center gap-2 leading-none">
-              <span className="text-xl">🍗</span>
+            {/* Line 1: System Title */}
+            <h1 className="text-[22px] font-black text-gray-900 tracking-tight leading-none mb-1">
               {t("app.title")}
             </h1>
             
             {/* Line 2: User Name */}
-            <div className="flex items-center gap-2 mt-1.5 ml-1">
+            <div className="mt-2 ml-0.5">
               {isLoggedIn ? (
-                <span className="text-[14px] font-bold text-gray-700">
+                <span className="text-[15px] font-bold text-gray-800">
                   {user.name}
                 </span>
               ) : (
@@ -81,21 +80,21 @@ export default function Home() {
 
             {/* Line 3: School · Major */}
             {isLoggedIn && (
-              <div className="flex items-center gap-1.5 mt-0.5 ml-1 text-[11px] text-gray-400 font-semibold">
-                <span className="truncate">{user.school}</span>
-                <span className="opacity-50">·</span>
-                <span className="truncate">{user.major}</span>
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 mt-1 ml-0.5 text-[12px] text-gray-500 font-semibold leading-relaxed">
+                <span>{user.school}</span>
+                <span className="text-gray-300">·</span>
+                <span>{user.major}</span>
               </div>
             )}
           </div>
 
-          <div className="flex-shrink-0 flex items-center gap-2">
+          <div className="flex-shrink-0 flex items-center gap-1.5 self-start pt-1">
             <button
-              className="lang-toggle lang-toggle--settings"
+              className="lang-toggle !px-2.5"
               onClick={() => setProfileOpen(true)}
               title={t('profile.title')}
             >
-              <Settings size={16} className="text-gray-600" />
+              <Settings size={18} className="text-gray-500" />
             </button>
             
             <button
