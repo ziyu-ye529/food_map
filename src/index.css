@@ -340,6 +340,7 @@ html, body, #root {
   display: flex;
   /* Single row with horizontal scroll */
   flex-wrap: nowrap;
+  gap: 8px;
   overflow-x: auto;
   overflow-y: visible;
   padding-bottom: 4px;
